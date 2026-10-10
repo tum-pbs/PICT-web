@@ -1,0 +1,125 @@
+site_name: PICT
+site_description: A differentiable, GPU-accelerated multi-block PISO solver for simulation-coupled learning tasks in fluid dynamics.
+site_author: Aleksandra Franz, Hao Wei, Luca Guastoni, Nils Thuerey
+site_url: https://tum-pbs.github.io/PICT/
+
+repo_url: https://github.com/tum-pbs/PICT
+repo_name: tum-pbs/PICT
+edit_uri: ""  # the docs live in a separate folder from the solver code, so no edit button
+
+
+theme:
+    name: material
+    features:
+        - navigation.sections  # Sections are included in the navigation on the left.
+        - toc.integrate  # Table of contents is integrated on the left; does not appear separately on the right.
+        - header.autohide  # header disappears as you scroll
+        - content.code.copy  # copy button on code blocks
+    palette:
+        - scheme: default
+          primary: custom
+          accent: custom
+          toggle:
+             icon: material/weather-night
+             name: Switch to dark mode
+        - scheme: slate
+          primary: custom
+          accent: custom
+          toggle:
+             icon: material/weather-sunny
+             name: Switch to light mode
+    icon:
+        repo: fontawesome/brands/github  # GitHub logo in top right
+    logo: imgs/pict_icon.png
+    favicon: imgs/favicon.png
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tum-pbs/PICT
+      name: PICT on GitHub
+    - icon: fontawesome/solid/file-lines
+      link: https://doi.org/10.1016/j.jcp.2025.114433
+      name: Paper (Journal of Computational Physics)
+    - icon: fontawesome/solid/flask
+      link: https://ge.in.tum.de/
+      name: Physics-based Simulation group, TUM
+
+strict: true  # Don't allow warnings during the build process
+
+markdown_extensions:
+    - pymdownx.arithmatex:  # Render LaTeX via MathJax
+        generic: true
+    - pymdownx.superfences  # Seems to enable syntax highlighting when used with the Material theme.
+    - pymdownx.details  # Allowing hidden expandable regions denoted by ???
+    - pymdownx.snippets:  # Include one Markdown file into another
+        base_path: docs
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.tabbed:
+        alternate_style: true
+    - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    - admonition
+    - attr_list
+    - md_in_html
+    - tables
+    - footnotes
+    - toc:
+        permalink: "¤"  # Adds a clickable permalink to each section heading
+        toc_depth: 4
+
+extra_javascript:
+    - javascripts/mathjax.js
+    - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+    - stylesheets/extra.css
+
+plugins:
+    - search  # default search plugin
+
+nav:
+    - Getting Started: 'index.md'
+    - Installation: 'installation.md'
+    - User Guide:
+        - Core Concepts: 'guide/concepts.md'
+        - Grids & Multi-Block Domains: 'guide/grids.md'
+        - Boundary Conditions: 'guide/boundaries.md'
+        - Running Simulations: 'guide/simulation.md'
+        - Sources, Scalars & Viscosity: 'guide/physics.md'
+        - Differentiable Simulation: 'guide/differentiable.md'
+        - Training Neural Networks: 'guide/learning.md'
+    - Examples:
+        - Overview: 'examples/index.md'
+        - Forward Simulation:
+            - Lid-Driven Cavity: 'examples/lid_driven_cavity.md'
+            - Vortex Street: 'examples/vortex_street.md'
+            - NACA 0012 Airfoil: 'examples/airfoil.md'
+            - Buoyant Plume: 'examples/buoyancy.md'
+            - Backward-Facing Step (2D & 3D): 'examples/backward_facing_step.md'
+            - Kármán Vortex Street in a Channel: 'examples/karman_vortex_street.md'
+            - Decaying & Kolmogorov Turbulence: 'examples/periodic_turbulence.md'
+            - Cylinder in a Channel (2D & 3D): 'examples/cylinder_channel.md'
+            - Airfoil in a Channel (2D & 3D): 'examples/airfoil_channel.md'
+            - Rayleigh–Bénard Convection (2D & 3D): 'examples/rayleigh_benard.md'
+            - Turbulent Channel Flow (Reτ = 180): 'examples/channel_flow_re180.md'
+        - Learning:
+            - Learning a Forcing: 'examples/learning_forcing.md'
+            - Turbulent Channel Flow SGS Model: 'examples/turbulent_channel_flow.md'
+    - Background:
+        - Numerical Method: 'background/method.md'
+        - Validation: 'background/validation.md'
+        - Results from the Paper: 'background/results.md'
+    - API Reference:
+        - Overview: 'api/index.md'
+        - PISOtorch (core module): 'api/pisotorch.md'
+        - PISOtorch_simulation: 'api/simulation.md'
+        - PISOtorch_diff: 'api/diff.md'
+        - Helper library (lib): 'api/lib.md'
+    - Misc:
+        - FAQ: 'misc/faq.md'
+        - Tips & Tricks: 'misc/tips.md'
+        - Gotchas: 'misc/gotchas.md'

@@ -1,0 +1,239 @@
+/* ------------------------------------------------------------------
+   PICT documentation theme.
+   Layout, typography and components are stock Material for MkDocs (as on
+   the APEBench docs); only the colors are taken from the PICT logo:
+   deep blue #0d4a6e and rust #a23b28.
+   ------------------------------------------------------------------ */
+
+:root > * {
+  --md-primary-fg-color:        #0d4a6e;
+  --md-primary-fg-color--light: #2f7aa3;
+  --md-primary-fg-color--dark:  #08324b;
+  --md-primary-bg-color:        #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+  --md-accent-fg-color:               #b4432c;
+  --md-accent-fg-color--transparent:  rgba(180, 67, 44, 0.1);
+  --md-accent-bg-color:               #ffffff;
+  --md-accent-bg-color--light:        rgba(255, 255, 255, 0.7);
+}
+
+body[data-md-color-scheme="default"] {
+  --md-typeset-a-color: #12608d;
+}
+
+body[data-md-color-scheme="slate"] {
+  --md-accent-fg-color:              #e58a6f;
+  --md-accent-fg-color--transparent: rgba(229, 138, 111, 0.12);
+  --md-typeset-a-color:              #7fbde2;
+}
+
+/* larger logo in the header (the icon sits on a white disc so it reads on the blue bar) */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.7rem;
+  width: auto;
+}
+
+/* ---------- hero on the landing page ---------- */
+.pict-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin: 0.4rem 0 1.2rem;
+}
+.pict-hero__logo {
+  flex: 0 0 auto;
+  width: 8.5rem;
+  height: auto;
+}
+.pict-hero__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.md-typeset .pict-hero h1 {
+  margin: 0 0 0.2rem;
+  font-weight: 700;
+  font-size: 2.6rem;
+  letter-spacing: 0.02em;
+  color: var(--md-primary-fg-color);
+}
+body[data-md-color-scheme="slate"] .md-typeset .pict-hero h1 {
+  color: #e9f2f8;
+}
+.pict-hero__tagline {
+  font-size: 1.05rem;
+  line-height: 1.45;
+  margin: 0 0 0.9rem;
+  color: var(--md-default-fg-color--light);
+}
+.pict-hero__tagline strong.pict-letter {
+  color: var(--md-accent-fg-color);
+}
+.md-typeset .pict-hero .md-button {
+  margin: 0.25rem 0.35rem 0.25rem 0;
+  padding: 0.45em 1.1em;
+  font-size: 0.72rem;
+}
+@media screen and (max-width: 44.9375em) {
+  .pict-hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.6rem;
+  }
+  .pict-hero__logo { width: 6rem; }
+  .md-typeset .pict-hero h1 { font-size: 2.1rem; }
+}
+
+/* ---------- media ---------- */
+.pict-media {
+  margin: 1rem 0 1.4rem;
+}
+.pict-media video,
+.pict-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.4rem;
+  box-shadow: var(--md-shadow-z1);
+}
+.pict-media--narrow {
+  max-width: 13rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.pict-media figcaption,
+.md-typeset figure figcaption {
+  max-width: none;
+  margin-top: 0.55rem;
+  font-size: 0.68rem;
+  line-height: 1.45;
+  color: var(--md-default-fg-color--light);
+  font-style: normal;
+}
+.md-typeset figure {
+  max-width: 100%;
+}
+.md-typeset figure img {
+  border-radius: 0.3rem;
+}
+
+/* figures taken from the paper are drawn on white; keep them on a white card in dark mode */
+body[data-md-color-scheme="slate"] .md-typeset img.on-white {
+  background: #ffffff;
+  padding: 0.4rem;
+}
+
+/* ---------- paper card ---------- */
+.pict-paper {
+  border-left: 0.2rem solid var(--md-accent-fg-color);
+  background: var(--md-code-bg-color);
+  border-radius: 0.2rem;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+}
+.pict-paper__title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.pict-paper__authors {
+  margin-top: 0.25rem;
+}
+.pict-paper__venue {
+  margin-top: 0.1rem;
+  color: var(--md-default-fg-color--light);
+}
+
+/* ---------- numbers from the paper ---------- */
+.pict-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 1.4rem;
+}
+.pict-stat {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.3rem;
+  padding: 0.7rem 0.8rem;
+}
+.pict-stat__value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--md-default-fg-color);
+}
+.pict-stat__label {
+  margin-top: 0.2rem;
+  font-size: 0.68rem;
+  line-height: 1.4;
+  color: var(--md-default-fg-color--light);
+}
+
+/* tables: let wide API tables scroll instead of squeezing */
+.md-typeset table:not([class]) {
+  font-size: 0.68rem;
+}
+
+/* buttons stay readable on the dark background */
+body[data-md-color-scheme="slate"] .md-typeset .md-button {
+  color: #7fbde2;
+  border-color: #7fbde2;
+}
+body[data-md-color-scheme="slate"] .md-typeset .md-button--primary {
+  color: #ffffff;
+  background-color: #1f6f9c;
+  border-color: #1f6f9c;
+}
+body[data-md-color-scheme="slate"] .md-typeset .md-button:focus,
+body[data-md-color-scheme="slate"] .md-typeset .md-button:hover {
+  color: #ffffff;
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* uniform 2:1 thumbnails in the example gallery */
+.md-typeset .grid.cards img {
+  /* no display override here: Material hides #only-light / #only-dark variants with display: none */
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  border-radius: 0.2rem;
+}
+.md-typeset .grid.cards img.thumb-left {
+  object-position: left center;
+}
+.md-typeset .grid.cards img.thumb-contain {
+  object-fit: contain;
+}
+
+/* ---------- "Source" box at the top of each example: a custom admonition (!!! source) ---------- */
+:root {
+  --md-admonition-icon--source: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4 1.75C4 .784 4.784 0 5.75 0h5.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 14.25 15h-9a.75.75 0 0 1 0-1.5h9a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 10 4.25V1.5H5.75a.25.25 0 0 0-.25.25v2.5a.75.75 0 0 1-1.5 0Zm1.72 4.97a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734l1.47-1.47-1.47-1.47a.75.75 0 0 1 0-1.06M3.28 7.78 1.81 9.25l1.47 1.47a.75.75 0 0 1-.018 1.042.75.75 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042m8.22-6.218V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914z"/></svg>');
+  --pict-source-color: #0d4a6e;
+  --pict-source-tint: rgba(13, 74, 110, 0.08);
+}
+body[data-md-color-scheme="slate"] {
+  --pict-source-color: #7fbde2;
+  --pict-source-tint: rgba(127, 189, 226, 0.1);
+}
+.md-typeset .admonition.source,
+.md-typeset details.source {
+  border-color: var(--pict-source-color);
+}
+.md-typeset .source > .admonition-title,
+.md-typeset .source > summary {
+  background-color: var(--pict-source-tint);
+}
+.md-typeset .source > .admonition-title::before,
+.md-typeset .source > summary::before {
+  background-color: var(--pict-source-color);
+  -webkit-mask-image: var(--md-admonition-icon--source);
+          mask-image: var(--md-admonition-icon--source);
+}
+.md-typeset .admonition.source ul {
+  list-style: none;
+  margin-left: 0;
+}
+.md-typeset .admonition.source ul li {
+  margin-left: 0;
+}
