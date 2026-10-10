@@ -12,7 +12,7 @@ mkdocs build --strict   # static site in ./site, fails on broken links
 
 ## Deploy
 
-`.github/workflows/docs.yml` builds the site with `--strict` and publishes it to GitHub Pages on every push to `main`. To use it, enable *Settings → Pages → Source: GitHub Actions* in the repository. Alternatively, run `mkdocs gh-deploy` to push the built site to a `gh-pages` branch. Adjust `site_url` in `mkdocs.yml` if the site is not served from `https://tum-pbs.github.io/PICT/`.
+`.github/workflows/docs.yml` builds the site with `--strict` and publishes it to GitHub Pages on every push to `main`. To use it, enable *Settings → Pages → Source: GitHub Actions* in the repository. Alternatively, run `mkdocs gh-deploy` to push the built site to a `gh-pages` branch. The site is served at <https://tum-pbs.github.io/PICT-web/>; adjust `site_url` in `mkdocs.yml` if it moves.
 
 ## Structure
 
