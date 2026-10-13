@@ -1,6 +1,6 @@
 # PICT website
 
-Source of the documentation and project website of [PICT](https://github.com/tum-pbs/PICT), the differentiable, GPU-accelerated multi-block PISO solver. The site is built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/), with the same setup as the [APEBench documentation](https://tum-pbs.github.io/apebench/).
+Source of the documentation and project website of [PICT](https://github.com/tum-pbs/PICT), the differentiable, GPU-accelerated multi-block PISO solver. The site is built with [MkDocs](https://www.mkdocs.org/) and [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
 ## Build and preview
 
